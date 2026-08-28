@@ -40,19 +40,29 @@ export function Faq() {
                     className="flex min-h-[3.5rem] w-full items-center justify-between gap-4 px-5 py-4 text-left ring-glass-focus sm:px-6"
                   >
                     <span
-                      className={`text-[15px] font-bold sm:text-base ${
+                      className={`min-w-0 text-[15px] font-bold sm:text-base ${
                         open ? "text-white" : "text-ink-900"
                       }`}
                     >
                       {faq.q}
                     </span>
-                    <ChevronDown
-                      className={`h-5 w-5 shrink-0 transition-transform duration-300 ${
-                        open ? "rotate-180 text-brand-300" : "text-brand-700"
+
+                    <span
+                      className={`relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${
+                        open
+                          ? "border-brand-300/40 bg-brand-300/15"
+                          : "border-brand-700/15 bg-brand-50/70"
                       }`}
-                      aria-hidden
-                    />
+                      aria-hidden="true"
+                    >
+                      <ChevronDown
+                        className={`h-5 w-5 transition-transform duration-300 ${
+                          open ? "rotate-180 text-brand-300" : "text-brand-700"
+                        }`}
+                      />
+                    </span>
                   </button>
+
                   <div id={`faq-panel-${i}`} className="faq-answer" data-open={open}>
                     <div>
                       <p
